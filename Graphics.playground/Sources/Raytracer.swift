@@ -1,16 +1,7 @@
+/// I'm putting everything that requires computation in this file for improved Playground performance
 import CoreGraphics
 
-let raytracer = Raytracer(width: 62, height: 30)
-raytracer.draw()
-
-
-struct Vector3 {
-    var x:Float
-    var y:Float
-    var z:Float
-}
-
-class Raytracer {
+public class Raytracer {
     
     let width:Int
     let height:Int
@@ -22,7 +13,7 @@ class Raytracer {
     ///   - width: width of Canvas
     ///   - height: height of Canvas
     ///   - background: default pixel background color
-    init(width:Int, height:Int, background:UInt32 = 0xff000000) {
+    public init(width:Int, height:Int, background:UInt32 = 0xff000000) {
         self.width = width
         self.height = height
         self.background = background
@@ -31,7 +22,7 @@ class Raytracer {
     
     /// Render the scene
     /// - Returns: Image or nil
-    func draw() -> CGImage? {
+    public func draw() -> CGImage? {
         fillBuffer()
         return createContext()?.makeImage()
     }
@@ -99,6 +90,3 @@ class Raytracer {
         return context
     }
 }
-
-
-
