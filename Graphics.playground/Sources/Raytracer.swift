@@ -5,6 +5,7 @@ public class Raytracer {
     
     let width:Int
     let height:Int
+    let scene:Scene
     let background:UInt32
     var pixels: [UInt32]
     
@@ -13,9 +14,10 @@ public class Raytracer {
     ///   - width: width of Canvas
     ///   - height: height of Canvas
     ///   - background: default pixel background color
-    public init(width:Int, height:Int, background:UInt32 = 0xff000000) {
+    public init(width:Int, height:Int, scene:Scene, background:UInt32 = 0xff000000) {
         self.width = width
         self.height = height
+        self.scene = scene
         self.background = background
         self.pixels = [UInt32](repeating: background, count: width*height)
     }
